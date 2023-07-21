@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <head>
     <title>Quiz App</title>
     <style>
@@ -9,11 +10,13 @@
             margin: 0;
             padding: 0;
             color: rgb(231, 130, 13);
-            background:url("Quiz-Begins-Cover-3-scaled.jpg");
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 1) 100%), url(Quiz-Begins-Cover-3-scaled.jpg);
             background-size: cover;
             background-repeat: no-repeat;
-        background-position: center;
-    background-blend-mode: luminosity;}
+            background-position: center;
+            background-attachment: fixed;
+            background-blend-mode: luminosity;
+        }
 
 
         .container {
@@ -29,8 +32,9 @@
         .question {
             margin-bottom: 20px;
             color: lawngreen;
+            text-shadow: 1px 1px #000;
             font-style: oblique;
-            font-weight: bolder ;
+            font-weight: bolder;
         }
 
         .options label {
@@ -40,11 +44,19 @@
 
         .submit-btn {
             display: -webkit-inline-box;
+            outline: none;
+            border: none;
             margin-top: 20px;
-            border-radius: 20px;
+            padding: 10px;
+            border-radius: 10px;
             border-color: rgb(210, 30, 141);
             color: rgb(139, 0, 0);
+            cursor: pointer;
             max-width: fit-content;
+        }
+        .submit-btn:hover{
+            font-weight: bold;
+            background-color: #ddd;
         }
     </style>
 </head>
@@ -235,11 +247,11 @@
             }
 
             // Display the score
-        
+
             alert('Your score is: ' + score + '/' + totalQuestions);
-            
+
         }
-        
+
     </script>
 </body>
 
