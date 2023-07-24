@@ -31,7 +31,7 @@
 
         .question {
             margin-bottom: 20px;
-            color: lawngreen;
+            color: rgb(227, 125, 8);
             text-shadow: 1px 1px #000;
             font-style: oblique;
             font-weight: bolder;
@@ -54,7 +54,8 @@
             cursor: pointer;
             max-width: fit-content;
         }
-        .submit-btn:hover{
+
+        .submit-btn:hover {
             font-weight: bold;
             background-color: #ddd;
         }
@@ -100,10 +101,10 @@
                 <p>What is the chemical symbol for gold?</p>
                 <div class="options">
                     <label>
-                        <input type="radio" name="q3" value="a"> a) Au
+                        <input type="radio" name="q3" value="a"> a) Ag
                     </label>
                     <label>
-                        <input type="radio" name="q3" value="b"> b) Ag
+                        <input type="radio" name="q3" value="b"> b) Au
                     </label>
                     <label>
                         <input type="radio" name="q3" value="c"> c) Hg
@@ -145,10 +146,10 @@
                 <p>What is the largest organ in the human body?</p>
                 <div class="options">
                     <label>
-                        <input type="radio" name="q6" value="a"> a) Skin
+                        <input type="radio" name="q6" value="a"> a) Kidney
                     </label>
                     <label>
-                        <input type="radio" name="q6" value="b"> b) Kidney
+                        <input type="radio" name="q6" value="b"> b) Skin
                     </label>
                     <label>
                         <input type="radio" name="q6" value="c"> c) Liver
@@ -225,13 +226,14 @@
             </div>
 
             <button class="submit-btn" onclick="submitQuiz()">Submit</button>
+            
         </div>
     </div>
 
 
     <script>
         function submitQuiz() {
-            var answers = ['a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'c', 'b']; // Correct answers for each question
+            var answers = ['a', 'a', 'b', 'a', 'a', 'b', 'a', 'a', 'c', 'b']; // Correct answers for each question
             var totalQuestions = 10;
             var score = 0;
 
@@ -239,11 +241,15 @@
             for (var i = 1; i <= totalQuestions; i++) {
                 var question = document.getElementsByName('q' + i);
                 for (var j = 0; j < question.length; j++) {
-                    if (question[j].checked && question[j].value === answers[i - 1]) {
+                     if (question[j].checked && question[j].value === answers[i - 1]) {
+    
                         score++;
                         break;
                     }
+                   
                 }
+                document.getElementsByClassName("question")[i-1].innerHTML+="<p style='color: green;'>Correct Answer: " + answers[i-1] + " </p>";
+                   
             }
 
             // Display the score
